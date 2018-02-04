@@ -1,6 +1,6 @@
 ### Predict stock market prices using RNN
 
-The blog of author is  [Lilian](https://lilianweng.github.io/lil-log/) , [GitHub](https://github.com/lilianweng)
+The blog of author is  [Lilian](https://lilianweng.github.io/lil-log/) , [GitHub](https://github.com/lilianweng)  
 The **["Predict Stock Prices Using RNN: Part 1"](https://lilianweng.github.io/lil-log/2017/07/08/predict-stock-prices-using-RNN-part-1.html)** for the tutorial associated.
 
 1. Make sure `tensorflow` has been installed.

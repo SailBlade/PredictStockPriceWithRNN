@@ -55,7 +55,7 @@ def load_sp500(input_size, num_steps, k=None, target_symbol=None, test_ratio=0.0
     print (info['file_exists'].value_counts().to_dict())
 
     info = info[info['file_exists'] == True].reset_index(drop=True)
-    info = info.sort('market_cap', ascending=False).reset_index(drop=True)
+    info = info.sort_values('market_cap', ascending=False).reset_index(drop=True)
 
     if k is not None:
         info = info.head(k)
@@ -109,4 +109,8 @@ def main(_):
 
 
 if __name__ == '__main__':
-    tf.app.run()
+    # Train a model only on SP500.csv; no embedding
+    # python main.py --stock_symbol=SP500 --train --input_size=1 --lstm_size=128 --max_epoch=50
+    # Train a model on 100 stocks; with embedding of size 8
+    # python main.py --stock_count=100 --train --input_size=1 --lstm_size=128 --max_epoch=50 --embed_size=8
+    tf.app.run(argv=['--stock_symbol=SP500','--train','--input_size=1','--lstm_size=128','--max_epoch=50'])

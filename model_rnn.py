@@ -199,7 +199,7 @@ class LstmRNN(object):
         print (sample_indices)
 
         print ("Start training for stocks:", [d.stock_sym for d in dataset_list])
-        for epoch in xrange(config.max_epoch):
+        for epoch in range(config.max_epoch):
             epoch_step = 0
             learning_rate = config.init_learning_rate * (
                 config.learning_rate_decay ** max(float(epoch + 1 - config.init_epoch), 0.0)
@@ -227,7 +227,8 @@ class LstmRNN(object):
                             global_step, epoch, learning_rate, train_loss, test_loss))
 
                         # Plot samples
-                        for sample_sym, indices in sample_indices.iteritems():
+                        print (type(sample_indices))
+                        for sample_sym, indices in sample_indices.items():
                             image_path = os.path.join(self.model_plots_dir, "{}_epoch{:02d}_step{:04d}.png".format(
                                 sample_sym, epoch, epoch_step))
                             sample_preds = test_pred[indices]
